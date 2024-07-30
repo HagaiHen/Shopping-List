@@ -1,5 +1,4 @@
-# Code Blocks Management Application
-
+# Shopping List Application
 ## Overview
 
 This application is a full-stack shopping list manager built using Node.js, Express.js, MongoDB for the backend, and React for the frontend. It allows users to manage a shopping list, including adding items and placing orders.
