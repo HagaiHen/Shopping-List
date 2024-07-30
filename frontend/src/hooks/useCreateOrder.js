@@ -28,6 +28,7 @@ const useCreateOrder = () => {
 
         } finally {
             setLoading(false);
+            console.log('Order Completed', orderData);
         };
     }
     return { createOrder, loading };

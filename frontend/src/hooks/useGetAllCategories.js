@@ -26,8 +26,8 @@ const useGetAllCategories = () => {
 
         }
         getCategories();
-    }, [setCategories]); // runs when setCategories changes
-    return { categories, setCategories, loading };
+    }, []); // runs once
+    return { categories, loading };
 }
 
 export default useGetAllCategories;

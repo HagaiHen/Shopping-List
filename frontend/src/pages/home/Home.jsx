@@ -33,6 +33,11 @@ function Home() {
     createOrder(productsList);
     setProductsList([]);
     dispatch(reset());
+    setCleaningCounter(0);
+    setCheesesCounter(0);
+    setVegNfruCounter(0);
+    setMeatNfishCounter(0);
+    setPastriesCounter(0);
   }
 
   const handleAddClick = () => {
