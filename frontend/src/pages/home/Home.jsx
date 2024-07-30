@@ -14,9 +14,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/esm/Button";
 import TextField from "@mui/material/TextField";
 import useGetAllCategories from "../../hooks/useGetAllCategories";
+import { useSelector, useDispatch } from "react-redux";
+import { increment, decrement, reset } from "../../features/counter/counterSlice.js";
 
 function Home(props) {
-  const [counter, setCounter] = useState(0);
   const [cleaningCounter, setCleaningCounter] = useState(0);
   const [cheesesCounter, setCheesesCounter] = useState(0);
   const [vegNfruCounter, setVegNfruCounter] = useState(0);
@@ -28,6 +29,9 @@ function Home(props) {
   const [productsList, setProductsList] = useState([]);
   const [inputText, setInputText] = useState("");
   const { categories } = useGetAllCategories();
+
+  const count = useSelector((state) => state.counter.count);
+  const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
     setInputText(e.target.value);
@@ -48,7 +52,7 @@ function Home(props) {
 
     // If not a duplicate, add the product to the list
     if (!isDuplicate) {
-      if (currentCategory.title !== 'Choose Category...') {
+      if (currentCategory.title !== "Choose Category...") {
         updatedProduct = {
           title: inputText,
           quantity: 1,
@@ -57,16 +61,17 @@ function Home(props) {
 
         //order instead
         setProductsList((prevList) => [...prevList, updatedProduct]);
-        setCounter((prevCounter) => prevCounter + 1);
+        dispatch(increment());
       }
-
     } else {
       // increase the product counter
       const updatedProducts = productsList.map((p) =>
-        p.title === inputText && p.category === currentCategory.title ? { ...p, quantity: p.quantity + 1 } : p
+        p.title === inputText && p.category === currentCategory.title
+          ? { ...p, quantity: p.quantity + 1 }
+          : p
       );
       setProductsList(updatedProducts);
-      setCounter((prevCounter) => prevCounter + 1);
+      dispatch(increment());
     }
 
     // increment the category counter
@@ -125,7 +130,7 @@ function Home(props) {
         </Button>
       </RightBar>
       <BottomBar>
-        <h4>Total: {counter}</h4>
+        <h4>Total: {count}</h4>
         {categories.map((category) => (
           <Card key={category._id}>
             <CategoryButton key={category._id}>
