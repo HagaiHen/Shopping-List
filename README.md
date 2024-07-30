@@ -23,6 +23,7 @@ This application is a full-stack shopping list manager built using Node.js, Expr
    ```
 2. **Install dependencies for backend:**
 ```bash
+cd backend
 npm insatll
 ```
 
