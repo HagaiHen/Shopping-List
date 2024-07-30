@@ -21,6 +21,7 @@ const useCreateOrder = () => {
                 console.log("Error creating order:", data.error);
                 throw new Error(data.error);
             }
+            console.log('Order Completed', orderData);
 
         } catch (error) {
             console.error("Error creating order:", error.message);
@@ -28,7 +29,6 @@ const useCreateOrder = () => {
 
         } finally {
             setLoading(false);
-            console.log('Order Completed', orderData);
         };
     }
     return { createOrder, loading };
