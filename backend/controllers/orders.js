@@ -3,10 +3,10 @@ import Product from '../models/product.js';
 
 export const createOrder = async (req, res) => {
     try {
-        const { fullname, email, address, products } = req.body;
+        const products = req.body;
 
-        if (!fullname || !email || !address || !products) {
-            return res.status(400).send({ error: 'All fields are required' });
+        if (products.length < 1) {
+            return res.status(400).send({ error: 'Product length have to be greater than 0' });
         }
 
         // Create new products and get their IDs
@@ -15,9 +15,6 @@ export const createOrder = async (req, res) => {
         const productIds = savedProducts.map(product => product._id);
 
         const newOrder = new Order({
-            fullname,
-            email,
-            address,
             products: productIds,
         });
 

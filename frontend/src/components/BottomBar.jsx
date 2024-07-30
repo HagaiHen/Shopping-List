@@ -3,7 +3,7 @@ import { BottomBar } from '../pages/home/styles';
 import CategoryCard from './CategoryCard';
 import Button from 'react-bootstrap/Button';
 
-const BottomBarComponent = ({ categories, productsList, categoryCounters, count, navigate }) => (
+const BottomBarComponent = ({ categories, productsList, categoryCounters, count, handleComplete }) => (
   <BottomBar>
     <h4>Total: {count}</h4>
     {categories.map((category) => (
@@ -16,7 +16,7 @@ const BottomBarComponent = ({ categories, productsList, categoryCounters, count,
     ))}
     <Button
       style={{ height: '60px', marginRight: '20px', marginLeft: '10px' }}
-      onClick={navigate}
+      onClick={handleComplete}
     >
       Complete Order
     </Button>
