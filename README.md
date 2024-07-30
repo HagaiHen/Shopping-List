@@ -43,7 +43,7 @@ Replace **<your-mongodb-uri>** with your actual MongoDB connection URI.
 ### Running the Application
 1. **Start the backend server:**
 ```bash
-cd <to the root dir>
+cd backend
 npm run start
 ```
 2. **Start the frontend application:**
