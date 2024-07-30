@@ -18,9 +18,10 @@ This application is a full-stack shopping list manager built using Node.js, Expr
 
 1. **Clone the repository:**
 
-   ```sh
+   ```bash
    git clone https://github.com/HagaiHen/Shopping-List.git
    cd Shopping-List
+   ```
 2. **Install dependencies for backend:**
 ```bash
 npm insatll
@@ -75,13 +76,6 @@ The home page allows users to manage their shopping list. Key features include:
 - Category Dropdown: Allows users to select a category for the product.
 - Product Input: Input field to add new products to the shopping list.
 - Bottom Bar: Displays the list of products, category counters, and provides an option to complete the order.
-
-### Key Files:
-
-- Home.jsx: Main component for the home page, manages state and interactions for adding items and placing orders.
-- CategoryDropdown.jsx: Component to select a category from a dropdown.
-- ProductInput.jsx: Component for adding new products to the list.
-- BottomBar.jsx: Component for displaying the list of products, category counters, and order completion button.
 
 ## Project Structure
 #### backend/: Contains the server-side code.
